@@ -1,0 +1,2 @@
+Para regresar a una versión de algún archivo podemos hacer un git log y mediante el id que nos devuelva ejecutamos el siguiente comando: git reset
+Hay dos formas de usar git reset: con el argumento --hard, borrando toda la información que tengamos en el área de staging (y perdiendo todo para siempre). O, un poco más seguro, con el argumento --soft, que mantiene allí los archivos del área de staging para que podamos aplicar nuestros últimos cambios pero desde un commit anterior.
