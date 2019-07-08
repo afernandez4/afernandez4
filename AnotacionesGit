@@ -30,3 +30,6 @@ Esto borra solo del local no de los tags de GitHub, para borrar de todo lado hac
 1. git push origin .refs/tags/dormido
 
 Para ver una versión visual de las ramas y commits de un proyecto ejecutar el comando gitk
+
+rebase.- El comando rebase es una mala práctica, nunca se debe usar.
+Con rebase puedes recoger todos los cambios confirmados en una rama y ponerlos sobre otra.
