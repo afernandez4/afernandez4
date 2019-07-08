@@ -7,3 +7,26 @@ git checkout ID_COMMIT nombreArchivo
 push a un repositorio remoto 
 git remote add origin https://github.com/afernandez4/gitFlow.git
 git push -u origin master
+
+
+Para ver el historial de un repo podemos usar el siguiente comando:
+git log --graph --decorate --oneline
+
+Este comando es muy largo y dificil de recordar, por lo tanto lo vamos a declarar como un alias llamado arbolito de la siguiente manera:
+alias arbolito="git log --graph --decorate --oneline"
+Ahora, arbolito contiene todo el comando para ver el historial.
+
+Para crear tags se debe hacer lo siguiente:
+1. Elegir en que commit o versión del código vamos a crear un tag, para esto hacemos un git log y seleccionamos el id de la versión a taggear.
+2. Ejecutamos el siguiente comando: git tag -a v0.1 -m "tag de una version cualquiera" idCommiATaggear
+3. git pull
+4. git push origin --tags (para enviar el tag a GitHub). Este tag se va a Releases del repositorio y también a tags dentro de las ramas del proyecto seleccionamos la pestaña tag y ahi va a estar creado el tag que enviamos al hacer un push.
+
+Para borrar un tag debo hacer lo siguiente:
+1. git tag -d tagABorrar
+2. git pull
+3. git push origin --tags
+Esto borra solo del local no de los tags de GitHub, para borrar de todo lado hacer lo siguiente:
+1. git push origin .refs/tags/dormido
+
+Para ver una versión visual de las ramas y commits de un proyecto ejecutar el comando gitk
