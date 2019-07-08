@@ -31,5 +31,39 @@ Esto borra solo del local no de los tags de GitHub, para borrar de todo lado hac
 
 Para ver una versión visual de las ramas y commits de un proyecto ejecutar el comando gitk
 
-rebase.- El comando rebase es una mala práctica, nunca se debe usar.
+git rebase.- El comando rebase es una mala práctica, nunca se debe usar (es una mala práctica).
 Con rebase puedes recoger todos los cambios confirmados en una rama y ponerlos sobre otra.
+
+git stash: Guardar cambios en memoria y recuperarlos después. Además puedo crear una rama a partir del stahs ejecutando el siguiente comando:
+	git stash branch nombreDelBranch
+
+git clean: Limpiar tu proyecto de archivos no deseados
+	git clean --dry-clean: lista los archivos que git cree que no deben estar
+	git clean -f borra los archivos listados en el comando anterior excepto los que están en .gitignore
+
+git cherry-pick: Traer commits viejos al head de un branch (es una mala práctica), se debe especificar el id del commit que quiero traer:
+	1. git checkout ramaQueTieneGitViejo
+	2. arbolito para recuperar idCommitViejo
+	3. git checkout al branch en el que quiero poner el commit viejo.
+	4. git cherry-pick idCommitViejo
+
+
+Reconstruír commits en Git con amend:
+Se utiliza cuando en un commit me olvidé de enviar un cambio extra. Por ejemplo, el commit debía contener el estilo para un header y un footer y solo hice commit del estilo del header, en este caso podemos agregar el estilo del footer y a continuación los siguientes pasos:
+	1. git add del cambio
+	2. git commit --amend (nos abre un vi para ver si se quiere cambiar el comentario del commit anterior)
+
+git reset --soft HashDelHEAD te mantiene lo que tengas en staging ahí.
+git reset --hard HashDelHEAD resetea absolutamente todo incluyendo lo que tengas en staging.
+git reset es una mala práctica, no deberías usarlo en ningún momento; debe ser nuestro último recurso.
+
+git grep.- para buscar cosas en archivos y commits
+	git grep "texto a buscar"
+	git grep -n "texto a buscar" //dice la línea en donde se usa
+	git grep -c "texto a buscar" //dice las veces que se repite el texto a buscar
+	git log -S "texto a buscar" //busca en todo el log
+	
+git shortlog -sn saca los commits por usuario
+Para agregar alias a nivel de la instalación de git local se debe hacer lo siguiente:
+git config --global alias.nombreAlias "comando a ser agregado a un alias" por ejemplo:
+	git config --global alias.arbol-custom "log --graph --decorate --oneline"
